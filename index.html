@@ -1,0 +1,1045 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Jejak Proklamasi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800;900&display=swap">
+<style>
+/* Layout concept: a sky-and-cream classroom notebook. The beranda is an icon menu;
+   each activity opens as its own page with a way back. */
+
+/* ---------- Tokens: light (default) ---------- */
+:root{
+  --bg:#eef8fc;
+  --paper:#fffdf7;
+  --card:#ffffff;
+  --cream:#fff4d9;
+  --ink:#243746;
+  --heading:#173b5c;
+  --muted:#4f6876;
+  --line:#e1d8c3;
+  --dot:#e9dfc8;
+  --btn:#173b5c;
+  --btn-ink:#ffffff;
+  --btn-edge:#0d2740;
+  --accent:#23789f;
+  --accent-soft:#dff2f9;
+  --gold:#f2c76c;
+  --gold-edge:#d6a444;
+  --gold-ink:#173b5c;
+  --ok-bg:#e0f4e7;
+  --ok-ink:#17603d;
+  --ok-line:#73c294;
+  --bad-bg:#fde8e0;
+  --bad-ink:#8a3c23;
+  --bad-line:#e8957f;
+  --hero-a:#bde8f7;
+  --hero-b:#e8f7fb;
+  --hero-c:#fbf0d4;
+  --topbar:#173b5c;
+  --topbar-ink:#ffffff;
+  --note:#fffbe9;
+  --note-ink:#3b3a2c;
+  --note-accent:#8f6416;
+  --shadow:0 10px 26px rgba(23,59,92,.10);
+  --radius:22px;
+  --hand:"Caveat","Segoe Print","Bradley Hand","Comic Sans MS",cursive;
+  --sans:"Nunito","Trebuchet MS",Arial,sans-serif;
+  color-scheme:light;
+}
+/* ---------- Tokens: dark (system preference) ---------- */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1d27;
+    --paper:#162a36;
+    --card:#1d3442;
+    --cream:#2a2c24;
+    --ink:#e3edf3;
+    --heading:#d7eef9;
+    --muted:#a9bec9;
+    --line:#2d4656;
+    --dot:#20384a;
+    --btn:#7fc9ea;
+    --btn-ink:#0f1d27;
+    --btn-edge:#3d88ad;
+    --accent:#7fc9ea;
+    --accent-soft:#1d3d50;
+    --gold:#e9bd55;
+    --gold-edge:#b68a2e;
+    --gold-ink:#173b5c;
+    --ok-bg:#1b3a2c;
+    --ok-ink:#b8e8cb;
+    --ok-line:#3f8a62;
+    --bad-bg:#3d2620;
+    --bad-ink:#f7c6b6;
+    --bad-line:#a85b45;
+    --hero-a:#1d4256;
+    --hero-b:#18303d;
+    --hero-c:#2d2b20;
+    --topbar:#0b1822;
+    --topbar-ink:#e8f5fb;
+    --note:#3a3420;
+    --note-ink:#f5ecd0;
+    --note-accent:#e9bd55;
+    --shadow:0 10px 26px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+}
+/* ---------- Tokens: dark (explicit toggle) ---------- */
+:root[data-theme="dark"]{
+  --bg:#0f1d27;
+  --paper:#162a36;
+  --card:#1d3442;
+  --cream:#2a2c24;
+  --ink:#e3edf3;
+  --heading:#d7eef9;
+  --muted:#a9bec9;
+  --line:#2d4656;
+  --dot:#20384a;
+  --btn:#7fc9ea;
+  --btn-ink:#0f1d27;
+  --btn-edge:#3d88ad;
+  --accent:#7fc9ea;
+  --accent-soft:#1d3d50;
+  --gold:#e9bd55;
+  --gold-edge:#b68a2e;
+  --gold-ink:#173b5c;
+  --ok-bg:#1b3a2c;
+  --ok-ink:#b8e8cb;
+  --ok-line:#3f8a62;
+  --bad-bg:#3d2620;
+  --bad-ink:#f7c6b6;
+  --bad-line:#a85b45;
+  --hero-a:#1d4256;
+  --hero-b:#18303d;
+  --hero-c:#2d2b20;
+  --topbar:#0b1822;
+  --topbar-ink:#e8f5fb;
+  --note:#3a3420;
+  --note-ink:#f5ecd0;
+  --note-accent:#e9bd55;
+  --shadow:0 10px 26px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+
+/* ---------- Base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  overflow-wrap:anywhere;
+}
+body::before{
+  content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);
+  z-index:10;background:var(--topbar);
+}
+a{color:inherit}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+input,textarea,select{
+  background:var(--paper);color:var(--ink);
+  border:1.5px solid var(--line);border-radius:12px;
+  padding:10px 12px;min-height:44px;min-width:0;
+}
+textarea{width:100%;min-height:120px;resize:vertical;line-height:1.55}
+input:focus,textarea:focus,select:focus{outline:3px solid var(--accent-soft);border-color:var(--accent)}
+img{max-width:100%}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-999px;top:8px;z-index:50;background:var(--card);color:var(--heading);padding:8px 12px;border-radius:10px}
+.skip:focus{left:12px}
+
+/* Shared gutter: every full-width band puts this on an inner wrapper */
+.wrap{
+  max-width:1120px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+
+/* ---------- Top bar ---------- */
+.topbar{background:var(--topbar);color:var(--topbar-ink)}
+.topbar-in{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+a.brand{display:flex;align-items:center;gap:9px;font-weight:900;letter-spacing:.04em;font-size:.92rem;text-transform:uppercase;text-decoration:none;color:inherit}
+.brand-mark{width:30px;height:30px;border-radius:10px;background:var(--gold);color:var(--gold-ink);display:grid;place-items:center;font-size:1.05rem}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.tb-note{font-size:.84rem;opacity:.9}
+.tb-link{text-decoration:none;font-weight:800;font-size:.9rem}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid #ffffff44;background:#ffffff1c;color:var(--topbar-ink);font-size:1.05rem;display:grid;place-items:center}
+.icon-btn:hover{background:#ffffff33}
+
+/* ---------- Icon menu (sticky) ---------- */
+.icon-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 6px 16px rgba(23,59,92,.06)}
+.icon-nav-in{display:flex;gap:4px;overflow-x:auto;padding-block:10px;scrollbar-width:none;scroll-snap-type:x proximity}
+.icon-nav-in::-webkit-scrollbar{display:none}
+@media (min-width:700px){.icon-nav-in{justify-content:space-between}}
+.nav-item{flex:0 0 auto;min-width:60px;display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:var(--ink);font-size:.74rem;font-weight:800;padding:4px 4px;border-radius:14px;scroll-snap-align:start}
+.nav-ico{width:46px;height:46px;border-radius:16px;display:grid;place-items:center;font-size:1.3rem;transition:transform .15s}
+.nav-item:hover .nav-ico{transform:translateY(-2px)}
+.nav-item[aria-current="true"]{color:var(--accent)}
+.nav-item[aria-current="true"] .nav-ico{box-shadow:0 0 0 3px var(--accent)}
+
+/* Pastel tiles shared by menu and module grid */
+.sky{background:#d9f0fb}
+.blue{background:#dff3fa}
+.yellow{background:#fff0c7}
+.pink{background:#ffe3dc}
+.green{background:#dcf2e5}
+.purple{background:#eee8ff}
+.orange{background:#ffead9}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--hero-a) 0%,var(--hero-b) 55%,var(--hero-c) 100%);
+}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;background:#ffffff40;pointer-events:none}
+.hero::before{width:280px;height:280px;right:-80px;top:-100px}
+.hero::after{width:190px;height:190px;left:-70px;bottom:-80px}
+.hero-in{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr;gap:clamp(22px,4vw,40px);align-items:center;
+  padding-block:clamp(28px,6vw,64px) clamp(36px,6vw,70px);
+}
+@media (min-width:880px){.hero-in{grid-template-columns:1.2fr .8fr}}
+.eyebrow{display:inline-block;background:#ffffffb8;color:var(--accent);font-weight:900;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.hero h1{
+  font-family:var(--hand);font-weight:700;color:var(--heading);
+  font-size:clamp(3.4rem,11vw,6.4rem);line-height:.92;margin:14px 0 10px;
+  text-wrap:balance;
+}
+.h1-accent{background:linear-gradient(transparent 60%,var(--gold) 60%,var(--gold) 92%,transparent 92%);padding:0 .05em}
+.hero-lead{font-size:clamp(1rem,2.2vw,1.12rem);max-width:600px;margin:0 0 22px;opacity:.92}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.sticky-note{
+  position:relative;background:var(--note);color:var(--note-ink);
+  border-radius:6px 22px 22px 6px;padding:28px 22px 22px;
+  box-shadow:0 14px 30px rgba(60,50,20,.18);transform:rotate(1.2deg);
+}
+.tape{position:absolute;top:-12px;left:50%;width:110px;height:26px;transform:translateX(-50%) rotate(-3deg);background:#bfe8f7b3;border-radius:3px}
+.note-stamp{font-weight:900;font-size:.72rem;letter-spacing:.12em;color:var(--note-accent)}
+.sticky-note h2{font-family:var(--hand);font-weight:700;font-size:clamp(1.9rem,4vw,2.35rem);line-height:1.1;margin:8px 0 10px;text-wrap:balance}
+.sticky-note p{margin:0;font-size:.93rem;opacity:.9}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:44px;border:0;border-radius:14px;padding:10px 18px;
+  font-weight:800;text-decoration:none;text-align:center;
+  background:var(--btn);color:var(--btn-ink);box-shadow:0 5px 0 var(--btn-edge);
+  transition:transform .15s,box-shadow .15s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--btn-edge)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.btn.gold{background:var(--gold);color:var(--gold-ink);box-shadow:0 5px 0 var(--gold-edge)}
+.btn.gold:active{box-shadow:0 2px 0 var(--gold-edge)}
+.btn.light{background:var(--card);color:var(--heading);box-shadow:none;border:1.5px solid var(--line)}
+.btn.light:hover{transform:none;background:var(--accent-soft)}
+.btn.light:active{transform:translateY(1px)}
+.link-btn{background:none;border:0;color:var(--muted);text-decoration:underline;padding:6px;font-weight:700;min-height:36px}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.back{display:inline-flex;align-items:center;gap:6px;min-height:40px;font-weight:800;color:var(--accent);text-decoration:none;margin-bottom:8px}
+.back:hover{text-decoration:underline}
+
+/* ---------- Transisi halaman ---------- */
+@keyframes viewIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes viewOut{to{opacity:0;transform:translateY(-10px)}}
+[data-view]:not([hidden]){animation:viewIn .45s cubic-bezier(.2,.7,.2,1) backwards}
+[data-view].leaving{animation:viewOut .17s ease-in forwards}
+.stagger>*{animation:viewIn .45s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:calc(var(--i,0)*55ms + 110ms)}
+
+/* ---------- Main + panels ---------- */
+main.wrap{padding-block:22px 60px}
+.panel{
+  background-color:var(--paper);
+  background-image:radial-gradient(var(--dot) 1.1px,transparent 1.3px);
+  background-size:22px 22px;
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:clamp(18px,3.4vw,32px);margin:0 0 24px;box-shadow:var(--shadow);
+  scroll-margin-top:110px;min-width:0;
+}
+.section-head{margin-bottom:18px}
+.section-head h2,.welcome h2{
+  font-family:var(--hand);font-weight:700;color:var(--heading);
+  font-size:clamp(2.2rem,5vw,3rem);line-height:1.05;margin:8px 0 4px;text-wrap:balance;
+}
+.section-head p{margin:0;color:var(--muted)}
+.tag{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:900;font-size:.72rem;letter-spacing:.1em;border-radius:999px;padding:5px 11px}
+.small{font-size:.86rem;color:var(--muted)}
+
+/* ---------- Welcome + identity ---------- */
+.welcome{
+  display:grid;grid-template-columns:1fr;gap:16px;align-items:center;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:clamp(16px,3vw,24px);box-shadow:var(--shadow);margin-bottom:14px;min-width:0;
+}
+@media (min-width:760px){.welcome{grid-template-columns:1fr auto}}
+.welcome p{margin:4px 0 0;color:var(--muted)}
+.welcome > .feedback{grid-column:1/-1;margin-top:0}
+.greet{font-family:var(--hand);font-size:1.5rem!important;color:var(--accent)!important;font-weight:700;margin-top:6px!important}
+.identity{display:flex;gap:8px;flex-wrap:wrap}
+.identity input{flex:1 1 150px;width:100%}
+@media (min-width:760px){.identity input{width:180px;flex:0 1 180px}}
+.identity .btn{flex:0 0 auto}
+.feedback{margin-top:14px;padding:12px 16px;border-radius:14px;background:var(--ok-bg);color:var(--ok-ink);font-weight:700}
+.feedback.error{background:var(--bad-bg);color:var(--bad-ink)}
+
+/* Progress card */
+.progress-card{
+  display:grid;grid-template-columns:1fr auto;gap:10px 16px;align-items:center;
+  background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:14px 18px;margin:14px 0 24px;min-width:0;
+}
+.progress-card strong{display:block;color:var(--heading)}
+.prog-text{color:var(--muted);font-size:.92rem}
+.bar{grid-column:1/-1;height:12px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar>span{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--accent),#8fd6ef);transition:width .4s}
+
+/* ---------- Activity menu tiles ---------- */
+.module-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (min-width:640px){.module-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}}
+.module{
+  position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;
+  padding:20px 12px 18px;border-radius:20px;background:var(--card);border:1px solid var(--line);
+  text-decoration:none;min-width:0;transition:transform .18s,box-shadow .18s;
+}
+.module:hover{transform:translateY(-4px);box-shadow:0 14px 26px rgba(23,59,92,.14)}
+.module-ico{width:72px;height:72px;border-radius:24px;display:grid;place-items:center;font-size:2.1rem;box-shadow:inset 0 -4px 0 rgba(0,0,0,.06)}
+.module strong{color:var(--heading);font-size:1.02rem;line-height:1.25}
+.module small{color:var(--muted);font-size:.86rem;line-height:1.35}
+.done-badge{position:absolute;top:10px;right:10px;background:var(--ok-bg);color:var(--ok-ink);font-size:.72rem;font-weight:900;border-radius:999px;padding:3px 9px}
+
+/* ---------- Materi ---------- */
+.content-grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:640px){.content-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1024px){.content-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.content-card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 18px 18px;min-width:0}
+.content-card .n{position:absolute;top:8px;right:14px;font-family:var(--hand);font-weight:700;font-size:2rem;line-height:1;color:var(--accent);opacity:.5}
+.content-card h3{margin:0 0 6px;color:var(--heading);font-size:1.04rem;padding-right:28px}
+.content-card p{margin:0;color:var(--muted);font-size:.95rem}
+.prompt{margin-top:18px;padding:16px 18px;background:var(--cream);border-left:5px solid var(--gold);border-radius:14px}
+.prompt strong{color:var(--heading)}
+.prompt p{margin:4px 0 0}
+
+/* ---------- Chronology ---------- */
+.timeline{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:720px){.timeline{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.event{display:flex;gap:12px;background:var(--card);border:2px solid var(--line);border-radius:18px;padding:14px;min-width:0;transition:border-color .2s,background .2s}
+.event.ok{border-color:var(--ok-line);background:var(--ok-bg)}
+.event.bad{border-color:var(--bad-line);background:var(--bad-bg)}
+.ev-letter{flex:0 0 42px;height:42px;border-radius:14px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:var(--hand);font-weight:700;font-size:1.75rem;line-height:1}
+.ev-body{flex:1;min-width:0}
+.ev-body strong{display:block;color:var(--heading)}
+.ev-body p{margin:4px 0 10px;color:var(--muted);font-size:.93rem}
+.ev-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ev-row label{font-size:.85rem;font-weight:800;color:var(--heading)}
+.ev-row select{padding:6px 10px;min-height:40px;cursor:pointer}
+.mark{font-size:.86rem;font-weight:800;width:100%}
+.event.ok .mark{color:var(--ok-ink)}
+.event.bad .mark{color:var(--bad-ink)}
+@media (min-width:480px){.mark{width:auto;margin-left:auto}}
+
+/* ---------- Sources + discussion ---------- */
+.source-grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:720px){.source-grid{grid-template-columns:1fr 1fr}}
+.source-box,.case-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;min-width:0}
+.source-box h3,.case-card h3{margin:0 0 6px;color:var(--heading);font-size:1.05rem}
+.source-box p,.case-card p{margin:0 0 10px;color:var(--muted)}
+.ext{font-weight:800;color:var(--accent);word-break:break-word}
+.hint{margin-top:14px;padding:12px 16px;background:var(--cream);border-radius:14px;color:var(--ink);font-size:.92rem}
+.field-label{display:block;font-weight:800;color:var(--heading);margin:16px 0 6px}
+.small-title{font-weight:900;color:var(--heading);margin:14px 0 4px!important}
+.guide{margin:0 0 6px;padding-left:20px;color:var(--muted)}
+.guide li{margin:4px 0}
+.draft-note{font-size:.84rem;color:var(--muted);margin:6px 0 0;min-height:1.3em}
+
+/* ---------- Evaluation ---------- */
+.quiz-meta{margin:4px 0 6px}
+#quizForm{margin-top:10px}
+.question{border:0;padding:18px 0;margin:0;border-bottom:1px dashed var(--line);min-width:0}
+.question:last-of-type{border-bottom:0}
+.question legend{float:left;width:100%;padding:0;margin:0 0 8px;font-weight:800;color:var(--heading);font-size:1.02rem;line-height:1.4}
+.q-title{display:flex;gap:10px;align-items:flex-start}
+.q-num{flex:0 0 30px;height:30px;border-radius:10px;background:var(--gold);color:var(--gold-ink);display:grid;place-items:center;font-family:var(--hand);font-size:1.45rem;line-height:1;font-weight:700}
+.option{display:flex;gap:10px;align-items:flex-start;padding:11px 13px;margin:8px 0 0 40px;border:1.5px solid var(--line);border-radius:14px;background:var(--card);cursor:pointer;transition:background .15s,border-color .15s;min-width:0}
+.option:hover{background:var(--accent-soft)}
+.option:has(input:checked){border-color:var(--accent)}
+.option input{margin-top:4px;accent-color:var(--accent);width:18px;height:18px;flex:0 0 auto;min-height:0;padding:0}
+.option.is-correct{border-color:var(--ok-line);background:var(--ok-bg)}
+.option.is-wrong{border-color:var(--bad-line);background:var(--bad-bg)}
+.q-explain{margin:10px 0 0 40px;font-size:.93rem;color:var(--muted)}
+.q-explain.ok{color:var(--ok-ink)}
+.q-explain.bad{color:var(--bad-ink)}
+.score-card{margin-top:18px;background:linear-gradient(135deg,var(--accent-soft),var(--cream));border:1px solid var(--line);border-radius:20px;padding:20px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;min-width:0}
+.score-big{font-family:var(--hand);font-weight:700;font-size:4.4rem;line-height:1;color:var(--heading)}
+.score-big small{font-size:1.5rem}
+.score-card h3{margin:0 0 4px;color:var(--heading);font-size:1.2rem}
+.score-card p{margin:0;color:var(--muted)}
+.note-box{margin-top:16px;padding:12px 14px;border-radius:14px;background:var(--cream);font-size:.9rem;color:var(--muted)}
+
+/* ---------- Reflection + references ---------- */
+.ref-list{padding-left:20px;margin:0}
+.ref-list li{margin:8px 0}
+.ref-list a{color:var(--accent);font-weight:700;overflow-wrap:anywhere}
+
+/* ---------- Footer ---------- */
+.footer{background:var(--topbar);color:var(--topbar-ink);text-align:center;font-size:.9rem}
+.footer-in{padding-block:24px 28px}
+.footer p{margin:0 0 6px}
+.footer .small{color:inherit;opacity:.8}
+
+/* ---------- Narrow phones ---------- */
+@media (max-width:520px){
+  .tb-note{display:none}
+  .topbar-in{padding-block:9px}
+  .sticky-note{transform:rotate(.6deg)}
+  .score-card{grid-template-columns:1fr;text-align:left}
+  .score-big{font-size:3.8rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+
+<a class="skip" href="#main">Lewati ke konten</a>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#beranda" data-go="beranda"><span class="brand-mark" aria-hidden="true">✦</span><span>Jejak Proklamasi</span></a>
+    <div class="topbar-right">
+      <span class="tb-note">Media Pembelajaran Sejarah • Kelas XI</span>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Ganti tema">🌙</button>
+      <a class="tb-link" href="#referensi" data-go="referensi">Sumber ↗</a>
+    </div>
+  </div>
+</header>
+
+<nav class="icon-nav" aria-label="Menu pembelajaran">
+  <div class="wrap icon-nav-in">
+    <a class="nav-item" href="#beranda" data-go="beranda"><span class="nav-ico sky" aria-hidden="true">🏡</span><span>Beranda</span></a>
+    <a class="nav-item" href="#materi" data-go="materi"><span class="nav-ico blue" aria-hidden="true">📖</span><span>Materi</span></a>
+    <a class="nav-item" href="#kronologi" data-go="kronologi"><span class="nav-ico yellow" aria-hidden="true">🗓️</span><span>Kronologi</span></a>
+    <a class="nav-item" href="#sumber" data-go="sumber"><span class="nav-ico pink" aria-hidden="true">📜</span><span>Sumber</span></a>
+    <a class="nav-item" href="#diskusi" data-go="diskusi"><span class="nav-ico green" aria-hidden="true">💬</span><span>Diskusi</span></a>
+    <a class="nav-item" href="#evaluasi" data-go="evaluasi"><span class="nav-ico purple" aria-hidden="true">📝</span><span>Evaluasi</span></a>
+    <a class="nav-item" href="#refleksi" data-go="refleksi"><span class="nav-ico orange" aria-hidden="true">🌱</span><span>Refleksi</span></a>
+  </div>
+</nav>
+
+<header class="hero" id="beranda" data-view="beranda">
+  <div class="wrap hero-in">
+    <div>
+      <span class="eyebrow">Belajar sejarah dengan menyelidiki bukti</span>
+      <h1>Jejak <span class="h1-accent">Proklamasi</span></h1>
+      <p class="hero-lead">Jelajahi perjalanan menuju Proklamasi Kemerdekaan Indonesia. Baca materi, susun kronologi, analisis sumber sejarah, berdiskusi, lalu uji pemahamanmu.</p>
+      <div class="hero-actions">
+        <a class="btn gold" href="#menu">Pilih kegiatan →</a>
+        <a class="btn light" href="#materi" data-go="materi">Baca materi dulu</a>
+      </div>
+    </div>
+    <aside class="sticky-note" aria-label="Misi hari ini">
+      <div class="tape" aria-hidden="true"></div>
+      <div class="note-stamp">✎ MISI SEJARAH HARI INI</div>
+      <h2>Bagaimana sebuah bangsa memproklamasikan kemerdekaannya?</h2>
+      <p>Temukan jawabannya lewat peristiwa, tokoh, dan bukti sejarah, bukan hanya dengan menghafal tanggal.</p>
+    </aside>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <section class="welcome" aria-labelledby="welcomeTitle" data-view="beranda">
+    <div>
+      <h2 id="welcomeTitle">Selamat datang, penjelajah sejarah! 👋</h2>
+      <p>Isi identitasmu dulu. Data hanya tersimpan di browser perangkat ini.</p>
+      <p class="greet" id="greet" aria-live="polite"></p>
+    </div>
+    <form class="identity" id="identityForm" novalidate>
+      <label class="sr-only" for="studentName">Nama siswa</label>
+      <input id="studentName" type="text" placeholder="Nama siswa" autocomplete="name">
+      <label class="sr-only" for="studentClass">Kelas</label>
+      <input id="studentClass" type="text" placeholder="Kelas, contoh XI-1">
+      <button class="btn" type="submit">Simpan</button>
+    </form>
+    <p class="feedback" id="identityFeedback" role="status" hidden></p>
+  </section>
+
+  <section class="progress-card" aria-labelledby="progTitle" data-view="beranda">
+    <div>
+      <strong id="progTitle">Progres belajarmu</strong>
+      <span class="prog-text" id="progText">0 dari 6 kegiatan selesai</span>
+    </div>
+    <button class="link-btn" id="resetAllBtn" type="button">Hapus data di perangkat ini</button>
+    <div class="bar" aria-hidden="true"><span id="progBar"></span></div>
+  </section>
+
+  <section class="panel" id="menu" data-view="beranda">
+    <div class="section-head">
+      <span class="tag">PETA BELAJAR</span>
+      <h2>Mau menjelajah bagian mana?</h2>
+      <p>Ketuk ikon untuk membuka kegiatan. Tanda ✓ berarti kegiatan sudah kamu selesaikan.</p>
+    </div>
+    <div class="module-grid stagger">
+      <a class="module" href="#materi" data-go="materi" data-key="materi"><span class="module-ico blue" aria-hidden="true">🏠</span><strong>Materi sejarah</strong><small>Latar belakang dan tokoh proklamasi.</small><span class="done-badge" hidden>✓ Selesai</span></a>
+      <a class="module" href="#kronologi" data-go="kronologi" data-key="kronologi"><span class="module-ico yellow" aria-hidden="true">🗓️</span><strong>Jelajah kronologi</strong><small>Susun peristiwa sesuai urutan waktu.</small><span class="done-badge" hidden>✓ Selesai</span></a>
+      <a class="module" href="#sumber" data-go="sumber" data-key="sumber"><span class="module-ico pink" aria-hidden="true">📜</span><strong>Laboratorium sumber</strong><small>Amati bukti dan bangun interpretasi.</small><span class="done-badge" hidden>✓ Selesai</span></a>
+      <a class="module" href="#diskusi" data-go="diskusi" data-key="diskusi"><span class="module-ico green" aria-hidden="true">💬</span><strong>Ruang diskusi</strong><small>Bangun kesimpulan bersama kelompok.</small><span class="done-badge" hidden>✓ Selesai</span></a>
+      <a class="module" href="#evaluasi" data-go="evaluasi" data-key="evaluasi"><span class="module-ico purple" aria-hidden="true">📝</span><strong>Evaluasi</strong><small>Kerjakan kuis dan lihat hasilnya.</small><span class="done-badge" hidden>✓ Selesai</span></a>
+      <a class="module" href="#refleksi" data-go="refleksi" data-key="refleksi"><span class="module-ico orange" aria-hidden="true">🌱</span><strong>Refleksi</strong><small>Catat pemahaman baru yang kamu dapatkan.</small><span class="done-badge" hidden>✓ Selesai</span></a>
+    </div>
+  </section>
+
+  <section class="panel" id="materi" data-view="materi">
+    <a class="back" href="#beranda" data-go="beranda">← Kembali ke beranda</a>
+    <div class="section-head">
+      <span class="tag">01 • BACA DAN PAHAMI</span>
+      <h2>Memahami Proklamasi</h2>
+      <p>Saat membaca, tanyakan pada diri sendiri: mengapa peristiwa ini penting?</p>
+    </div>
+    <div class="content-grid stagger">
+      <article class="content-card"><span class="n" aria-hidden="true">1</span><h3>Situasi Agustus 1945</h3><p>Kekalahan Jepang dalam Perang Dunia II membuka situasi politik yang menentukan bagi perjuangan kemerdekaan. Para pemimpin Indonesia berbeda pandangan mengenai waktu dan cara memproklamasikan kemerdekaan.</p></article>
+      <article class="content-card"><span class="n" aria-hidden="true">2</span><h3>Peristiwa Rengasdengklok</h3><p>Pada 16 Agustus 1945, Sukarno dan Mohammad Hatta dibawa oleh para pemuda ke Rengasdengklok. Peristiwa ini berkaitan dengan desakan agar proklamasi segera dilakukan.</p></article>
+      <article class="content-card"><span class="n" aria-hidden="true">3</span><h3>Perumusan naskah</h3><p>Pada malam 16 Agustus, Sukarno, Hatta, dan Ahmad Soebardjo terlibat dalam perumusan naskah di kediaman Laksamana Tadashi Maeda. Naskah kemudian diketik oleh Sayuti Melik.</p></article>
+      <article class="content-card"><span class="n" aria-hidden="true">4</span><h3>Pembacaan proklamasi</h3><p>Pada 17 Agustus 1945 sekitar pukul 10.00 WIB, Sukarno membacakan Proklamasi didampingi Mohammad Hatta di Jalan Pegangsaan Timur No. 56, Jakarta.</p></article>
+      <article class="content-card"><span class="n" aria-hidden="true">5</span><h3>Tokoh dan peran</h3><p>Sukarno dan Hatta menandatangani naskah atas nama bangsa Indonesia. Ahmad Soebardjo berperan dalam proses perundingan, sedangkan para pemuda mendesak agar kemerdekaan segera diproklamasikan.</p></article>
+      <article class="content-card"><span class="n" aria-hidden="true">6</span><h3>Makna proklamasi</h3><p>Proklamasi menyatakan kemerdekaan Indonesia dan menjadi titik penting pembentukan negara merdeka. Setelah itu, bangsa Indonesia masih harus membangun pemerintahan dan mempertahankan kemerdekaan.</p></article>
+    </div>
+    <div class="prompt">
+      <strong>💡 Pertanyaan pemantik</strong>
+      <p>Apakah proklamasi terjadi secara tiba-tiba, atau merupakan hasil dari rangkaian keadaan dan keputusan? Jelaskan menggunakan informasi yang sudah kamu baca.</p>
+    </div>
+    <div class="btn-row">
+      <button class="btn light" id="markReadBtn" type="button" aria-pressed="false">Tandai sudah membaca materi</button>
+    </div>
+  </section>
+
+  <section class="panel" id="kronologi" data-view="kronologi">
+    <a class="back" href="#beranda" data-go="beranda">← Kembali ke beranda</a>
+    <div class="section-head">
+      <span class="tag">02 • AKTIVITAS INTERAKTIF</span>
+      <h2>Susun jejak waktunya</h2>
+      <p>Pilih nomor urutan dari peristiwa paling awal sampai paling akhir, lalu periksa jawabanmu.</p>
+    </div>
+    <div class="timeline stagger" id="chronologyList"></div>
+    <div class="btn-row">
+      <button class="btn gold" id="checkChrono" type="button">Periksa urutan</button>
+      <button class="btn light" id="resetChrono" type="button">Acak ulang</button>
+    </div>
+    <p class="feedback" id="chronoFeedback" role="status" aria-live="polite" hidden></p>
+  </section>
+
+  <section class="panel" id="sumber" data-view="sumber">
+    <a class="back" href="#beranda" data-go="beranda">← Kembali ke beranda</a>
+    <div class="section-head">
+      <span class="tag">03 • LABORATORIUM SUMBER</span>
+      <h2>Belajar dari bukti sejarah</h2>
+      <p>Sejarawan memeriksa sumber, konteks, dan informasi yang didukung oleh bukti.</p>
+    </div>
+    <div class="source-grid">
+      <div class="source-box">
+        <h3>📜 Sumber A: Arsip naskah</h3>
+        <p>Arsip Nasional Republik Indonesia (ANRI) menyediakan bahan arsip terkait Presiden Sukarno, termasuk sumber yang dapat digunakan untuk menelusuri sejarah Proklamasi.</p>
+        <a class="ext" href="https://anri.go.id/download/naskah-sumber-arsip-seri-presiden-ri-sukarno-1586395026" target="_blank" rel="noopener">Buka sumber ANRI ↗</a>
+      </div>
+      <div class="source-box">
+        <h3>🏛️ Sumber B: Informasi kelembagaan</h3>
+        <p>Direktorat Jenderal Kebudayaan memuat informasi mengenai sejarah Museum Perumusan Naskah Proklamasi dan rangkaian peristiwa menjelang kemerdekaan.</p>
+        <a class="ext" href="https://kebudayaan.kemdikbud.go.id/sejarah-museum-perumusan-naskah-proklamasi-3/" target="_blank" rel="noopener">Baca sumber kebudayaan ↗</a>
+      </div>
+    </div>
+    <label class="field-label" for="sourceA">1. Informasi apa yang bisa kamu pelajari dari arsip atau naskah sejarah?</label>
+    <textarea id="sourceA" data-draft="sourceA" placeholder="Tuliskan pengamatanmu berdasarkan sumber..."></textarea>
+    <p class="draft-note" id="note-sourceA"></p>
+    <label class="field-label" for="sourceB">2. Mengapa informasi sejarah perlu dibandingkan dengan sumber lain?</label>
+    <textarea id="sourceB" data-draft="sourceB" placeholder="Jelaskan alasanmu..."></textarea>
+    <p class="draft-note" id="note-sourceB"></p>
+    <p class="hint">Bedakan informasi yang tampak langsung dalam sumber dengan interpretasi atau kesimpulan yang kamu buat.</p>
+  </section>
+
+  <section class="panel" id="diskusi" data-view="diskusi">
+    <a class="back" href="#beranda" data-go="beranda">← Kembali ke beranda</a>
+    <div class="section-head">
+      <span class="tag">04 • KOLABORASI</span>
+      <h2>Ruang diskusi kelompok</h2>
+      <p>Gunakan materi dan sumber yang tersedia untuk mendukung pendapat kelompok.</p>
+    </div>
+    <div class="case-card">
+      <h3>Masalah sejarah</h3>
+      <p>Golongan muda dan golongan tua memiliki perbedaan pandangan mengenai pelaksanaan proklamasi. Apa yang menyebabkan perbedaan itu, dan bagaimana perbedaan tersebut akhirnya dapat diatasi?</p>
+      <p class="small-title">Pertanyaan pemandu</p>
+      <ul class="guide">
+        <li>Apa yang dipikirkan golongan muda, dan apa yang dipikirkan golongan tua?</li>
+        <li>Bukti apa dari materi atau sumber yang mendukung jawabanmu?</li>
+        <li>Bagaimana kompromi akhirnya dicapai?</li>
+      </ul>
+      <label class="field-label" for="groupAnswer">Kesimpulan kelompok</label>
+      <textarea id="groupAnswer" data-draft="groupAnswer" placeholder="Tuliskan kesimpulan kelompok dan bukti sejarah yang mendukungnya..."></textarea>
+      <p class="draft-note" id="note-groupAnswer"></p>
+    </div>
+  </section>
+
+  <section class="panel" id="evaluasi" data-view="evaluasi">
+    <a class="back" href="#beranda" data-go="beranda">← Kembali ke beranda</a>
+    <div class="section-head">
+      <span class="tag">05 • EVALUASI</span>
+      <h2>Uji pemahamanmu</h2>
+      <p>Jawab lima pertanyaan, lalu tekan “Lihat hasilku”. Pembahasan muncul untuk setiap soal.</p>
+    </div>
+    <p class="small quiz-meta" id="progressText" aria-live="polite">0 dari 5 soal dijawab</p>
+    <div class="bar" aria-hidden="true"><span id="quizProgress"></span></div>
+    <form id="quizForm" novalidate>
+      <div id="quizQuestions"></div>
+      <div class="btn-row">
+        <button type="submit" class="btn gold" id="submitQuiz">Lihat hasilku</button>
+        <button type="button" class="btn light" id="resetQuiz">Ulangi kuis</button>
+      </div>
+    </form>
+    <div class="score-card" id="quizResult" hidden></div>
+    <p class="feedback" id="quizNote" role="status" aria-live="polite" hidden></p>
+    <p class="small" id="lastScore" hidden></p>
+    <p class="note-box">Catatan: hasil kuis disimpan di browser siswa. Agar guru bisa melihat nilai dari perangkat berbeda, website perlu dihubungkan ke database atau backend. Saat ini belum ada fitur itu.</p>
+  </section>
+
+  <section class="panel" id="refleksi" data-view="refleksi">
+    <a class="back" href="#beranda" data-go="beranda">← Kembali ke beranda</a>
+    <div class="section-head">
+      <span class="tag">06 • REFLEKSI</span>
+      <h2>Apa yang kamu pelajari hari ini?</h2>
+      <p>Refleksi membantu kamu menyadari bagaimana pemahaman sejarah terbentuk.</p>
+    </div>
+    <label class="field-label" for="reflection">Apa pemahaman baru yang kamu dapatkan, dan bukti apa yang paling membantumu?</label>
+    <textarea id="reflection" data-draft="reflection" placeholder="Tuliskan refleksimu di sini..."></textarea>
+    <p class="draft-note" id="note-reflection"></p>
+    <div class="btn-row">
+      <button class="btn" id="saveReflection" type="button">Simpan refleksi</button>
+      <button class="btn light" id="exportBtn" type="button">Unduh jawaban sebagai TXT</button>
+    </div>
+    <p class="feedback" id="reflectionFeedback" role="status" aria-live="polite" hidden></p>
+  </section>
+
+  <section class="panel" id="referensi" data-view="referensi">
+    <a class="back" href="#beranda" data-go="beranda">← Kembali ke beranda</a>
+    <div class="section-head">
+      <span class="tag">REFERENSI</span>
+      <h2>Sumber belajar lanjutan</h2>
+      <p>Gunakan referensi berikut untuk memeriksa fakta dan memperdalam pemahaman.</p>
+    </div>
+    <ul class="ref-list">
+      <li><a href="https://anri.go.id/download/naskah-sumber-arsip-seri-presiden-ri-sukarno-1586395026" target="_blank" rel="noopener">Arsip Nasional Republik Indonesia: Naskah sumber arsip seri Presiden RI Sukarno</a></li>
+      <li><a href="https://kebudayaan.kemdikbud.go.id/sejarah-museum-perumusan-naskah-proklamasi-3/" target="_blank" rel="noopener">Direktorat Jenderal Kebudayaan: Sejarah Museum Perumusan Naskah Proklamasi</a></li>
+      <li><a href="https://kebudayaan.kemdikbud.go.id/sejarah-museum-perumusan-naskah-proklamasi-4/" target="_blank" rel="noopener">Direktorat Jenderal Kebudayaan: Sejarah Museum Perumusan Naskah Proklamasi (lanjutan)</a></li>
+    </ul>
+    <p class="small">Periksa kembali isi dan tautan referensi sebelum website dipublikasikan. Sesuaikan tujuan pembelajaran dengan arahan guru dan kurikulum yang digunakan.</p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <p><strong>Jejak Proklamasi</strong> • Web pembelajaran sejarah berbasis konstruktivisme</p>
+    <p>Belajar aktif · Analisis sumber · Diskusi · Refleksi</p>
+    <p class="small">Identitas, draft, nilai, dan progres hanya tersimpan di browser perangkat ini. Belum ada database, jadi guru belum bisa melihat nilai dari perangkat lain.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* ===== Konten (guru dapat mengedit di bagian ini) ===== */
+const EVENTS=[
+  {id:"a",order:1,date:"15 Agustus 1945",text:"Kabar menyerahnya Jepang kepada Sekutu mempercepat dinamika politik menuju kemerdekaan."},
+  {id:"b",order:2,date:"16 Agustus 1945",text:"Sukarno dan Hatta dibawa para pemuda ke Rengasdengklok."},
+  {id:"c",order:3,date:"Malam 16 Agustus",text:"Perumusan naskah Proklamasi dilakukan di kediaman Laksamana Maeda di Jakarta."},
+  {id:"d",order:4,date:"17 Agustus 1945",text:"Proklamasi dibacakan oleh Sukarno didampingi Mohammad Hatta di Pegangsaan Timur No. 56."}
+];
+const ORDINAL=["Pertama","Kedua","Ketiga","Keempat"];
+const QUIZ=[
+  {q:"Apa salah satu sebab utama terjadinya peristiwa Rengasdengklok?",
+   options:["Para pemuda ingin menunda proklamasi hingga setelah perang.","Adanya desakan golongan muda agar proklamasi segera dilakukan.","Sukarno dan Hatta hendak membatalkan kemerdekaan."],
+   answer:1,
+   explain:"Rengasdengklok berkaitan dengan desakan golongan muda agar proklamasi segera dilakukan."},
+  {q:"Di rumah siapa naskah Proklamasi dirumuskan pada malam 16 Agustus 1945?",
+   options:["Laksamana Tadashi Maeda.","Sayuti Melik.","Djiaw Ki Siong."],
+   answer:0,
+   explain:"Perumusan naskah berlangsung di kediaman Laksamana Tadashi Maeda di Jakarta."},
+  {q:"Siapa yang mengetik naskah Proklamasi setelah dirumuskan?",
+   options:["Ahmad Soebardjo.","Mohammad Yamin.","Sayuti Melik."],
+   answer:2,
+   explain:"Sayuti Melik mengetik naskah Proklamasi."},
+  {q:"Di mana Proklamasi dibacakan pada 17 Agustus 1945?",
+   options:["Rengasdengklok, Karawang.","Jalan Pegangsaan Timur No. 56, Jakarta.","Kediaman Laksamana Maeda di Jakarta."],
+   answer:1,
+   explain:"Proklamasi dibacakan di Jalan Pegangsaan Timur No. 56, Jakarta."},
+  {q:"Mengapa sumber sejarah penting dalam mempelajari proklamasi?",
+   options:["Agar semua cerita sejarah diterima tanpa diperiksa.","Agar siswa cukup menghafal nama tokoh saja.","Untuk memeriksa informasi dan menyusun penjelasan berdasarkan bukti."],
+   answer:2,
+   explain:"Sumber membantu memeriksa informasi dan membangun penjelasan sejarah berdasarkan bukti."}
+];
+const KEYS={identity:"jejakProklamasiIdentity",score:"jejakProklamasiLastScore",draft:"jejakProklamasiDraft",progress:"jejakProklamasiProgress",theme:"jejakProklamasiTheme"};
+const DRAFT_FIELDS=["sourceA","sourceB","groupAnswer","reflection"];
+const ACTIVITIES=["materi","kronologi","sumber","diskusi","evaluasi","refleksi"];
+const VIEWS=["beranda","materi","kronologi","sumber","diskusi","evaluasi","refleksi","referensi"];
+
+/* ===== Penyimpanan per-browser (aman bila dibatasi browser) ===== */
+function storage(){try{return window.localStorage}catch(e){return null}}
+const store={
+  get(k,fb){
+    const s=storage(); if(!s) return fb;
+    try{const v=s.getItem(k); return v===null?fb:JSON.parse(v)}catch(e){return fb}
+  },
+  set(k,v){
+    const s=storage(); if(!s) return false;
+    try{s.setItem(k,JSON.stringify(v)); return true}catch(e){return false}
+  },
+  remove(k){const s=storage(); try{if(s) s.removeItem(k)}catch(e){}}
+};
+
+/* ===== Helper ===== */
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function showMsg(el,text,isError){el.textContent=text;el.classList.toggle("error",!!isError);el.hidden=false}
+function hideMsg(el){el.hidden=true;el.textContent=""}
+function shuffle(arr){
+  const a=arr.slice();
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
+  return a;
+}
+function shuffleDistinct(arr){
+  let out,guard=0;
+  do{out=shuffle(arr)}while(out.every((e,i)=>e===arr[i])&&++guard<20);
+  return out;
+}
+
+/* ===== Tampilan per halaman (beranda, lalu satu kegiatan) ===== */
+const reduceMotion=!!(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+let viewToken=0;
+let booted=false;
+function applyView(name){
+  $$("[data-view]").forEach(el=>{el.classList.remove("leaving");el.hidden=el.dataset.view!==name});
+  try{window.scrollTo({top:0,behavior:"instant"})}catch(e){window.scrollTo(0,0)}
+}
+function showView(name){
+  if(!VIEWS.includes(name)) name="beranda";
+  $$(".nav-item").forEach(l=>l.setAttribute("aria-current",l.dataset.go===name?"true":"false"));
+  try{history.replaceState(null,"","#"+name)}catch(e){}
+  const token=++viewToken;
+  const current=booted?$$("[data-view]").find(el=>!el.hidden):null;
+  if(current&&current.dataset.view!==name&&!reduceMotion){
+    current.classList.add("leaving");
+    setTimeout(()=>{if(token===viewToken)applyView(name)},170);
+  }else{
+    applyView(name);
+  }
+}
+function setStagger(){
+  $$(".stagger").forEach(g=>Array.from(g.children).forEach((c,i)=>c.style.setProperty("--i",i)));
+}
+/* Semua tautan jangkar ditangani skrip, karena lompatan #anchor biasa tidak berjalan di Artifact */
+document.addEventListener("click",e=>{
+  const a=e.target.closest("a[href^='#']");
+  if(!a) return;
+  e.preventDefault();
+  if(a.dataset.go){
+    showView(a.dataset.go);
+    return;
+  }
+  const target=document.getElementById(a.getAttribute("href").slice(1));
+  if(target) target.scrollIntoView({behavior:reduceMotion?"auto":"smooth",block:"start"});
+});
+window.addEventListener("hashchange",()=>showView(location.hash.slice(1)));
+
+/* ===== State ===== */
+let progress=store.get(KEYS.progress,{})||{};
+let draft=store.get(KEYS.draft,{})||{};
+function getIdentity(){return store.get(KEYS.identity,null)||{}}
+function completed(key){
+  if(key==="sumber") return !!(draft.sourceA||"").trim()&&!!(draft.sourceB||"").trim();
+  if(key==="diskusi") return !!(draft.groupAnswer||"").trim();
+  return !!progress[key];
+}
+function setDone(key,val){
+  progress[key]=!!val;
+  const ok=store.set(KEYS.progress,progress);
+  renderProgress();
+  return ok;
+}
+
+/* ===== Render: progres, identitas, tema ===== */
+function renderProgress(){
+  const done=ACTIVITIES.filter(completed).length;
+  $("#progText").textContent=`${done} dari ${ACTIVITIES.length} kegiatan selesai`;
+  $("#progBar").style.width=(done/ACTIVITIES.length*100)+"%";
+  $$(".module").forEach(m=>{
+    const ok=completed(m.dataset.key);
+    m.classList.toggle("is-done",ok);
+    $(".done-badge",m).hidden=!ok;
+  });
+}
+function renderGreeting(){
+  const id=getIdentity();
+  $("#greet").textContent=id.name?`Halo, ${id.name}${id.klass?" ("+id.klass+")":""}! Selamat belajar.`:"";
+}
+function renderMateri(){
+  const b=$("#markReadBtn"),d=completed("materi");
+  b.textContent=d?"✓ Sudah dibaca (ketuk untuk batal)":"Tandai sudah membaca materi";
+  b.setAttribute("aria-pressed",String(d));
+}
+function currentTheme(){
+  const t=document.documentElement.getAttribute("data-theme");
+  if(t) return t;
+  return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";
+}
+function updateThemeBtn(){
+  const dark=currentTheme()==="dark",b=$("#themeBtn");
+  b.textContent=dark?"☀️":"🌙";
+  b.setAttribute("aria-label",dark?"Pakai tema terang":"Pakai tema gelap");
+}
+
+/* ===== Kronologi ===== */
+let chronoOrder=[];
+function renderChrono(){
+  chronoOrder=shuffleDistinct(EVENTS);
+  $("#chronologyList").innerHTML=chronoOrder.map((ev,i)=>`
+    <article class="event" data-id="${ev.id}">
+      <div class="ev-letter" aria-hidden="true">${"ABCD"[i]}</div>
+      <div class="ev-body">
+        <strong>${esc(ev.date)}</strong>
+        <p>${esc(ev.text)}</p>
+        <div class="ev-row">
+          <label for="ord-${ev.id}">Urutan ke-</label>
+          <select id="ord-${ev.id}">
+            <option value="">Pilih…</option>
+            ${EVENTS.map((_,k)=>`<option value="${k+1}">${k+1} — ${ORDINAL[k]}</option>`).join("")}
+          </select>
+          <span class="mark" aria-live="polite"></span>
+        </div>
+      </div>
+    </article>`).join("");
+  hideMsg($("#chronoFeedback"));
+  setStagger();
+}
+function checkChrono(){
+  const fb=$("#chronoFeedback");
+  const picks=chronoOrder.map(ev=>({ev,card:$(`.event[data-id="${ev.id}"]`),val:Number($("#ord-"+ev.id).value)}));
+  if(picks.some(p=>!p.val)){showMsg(fb,"Pilih urutan untuk semua peristiwa terlebih dahulu.",true);return}
+  if(new Set(picks.map(p=>p.val)).size!==picks.length){showMsg(fb,"Setiap peristiwa harus memiliki nomor urutan yang berbeda.",true);return}
+  let correct=0;
+  picks.forEach(p=>{
+    const ok=p.val===p.ev.order;
+    if(ok) correct++;
+    p.card.classList.toggle("ok",ok);
+    p.card.classList.toggle("bad",!ok);
+    $(".mark",p.card).textContent=ok?"✓ Tepat":"✗ Periksa tanggal lagi";
+  });
+  if(correct===EVENTS.length){
+    setDone("kronologi",true);
+    showMsg(fb,"Hebat! Semua peristiwa sudah berurutan dengan benar. Coba jelaskan hubungan antarperistiwa.",false);
+  }else{
+    showMsg(fb,`Kamu menempatkan ${correct} dari ${EVENTS.length} peristiwa pada urutan yang tepat. Tinjau tanggal dan hubungan antarperistiwa, lalu coba lagi.`,true);
+  }
+}
+
+/* ===== Kuis ===== */
+function answeredCount(){
+  return QUIZ.filter((_,i)=>document.querySelector(`input[name="q${i}"]:checked`)).length;
+}
+function updateQuizProgress(){
+  const n=answeredCount();
+  $("#quizProgress").style.width=(n/QUIZ.length*100)+"%";
+  $("#progressText").textContent=`${n} dari ${QUIZ.length} soal dijawab`;
+}
+function renderQuiz(){
+  $("#quizQuestions").innerHTML=QUIZ.map((item,i)=>`
+    <fieldset class="question" id="qbox${i}">
+      <legend><span class="q-title"><span class="q-num" aria-hidden="true">${i+1}</span><span>${esc(item.q)}</span></span></legend>
+      ${item.options.map((opt,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}"><span>${esc(opt)}</span></label>`).join("")}
+      <p class="q-explain" hidden></p>
+    </fieldset>`).join("");
+  $("#quizResult").hidden=true;
+  $("#quizResult").innerHTML="";
+  hideMsg($("#quizNote"));
+  $("#submitQuiz").disabled=false;
+  updateQuizProgress();
+}
+function gradeQuiz(){
+  let score=0,unanswered=0;
+  QUIZ.forEach((item,i)=>{
+    const sel=document.querySelector(`input[name="q${i}"]:checked`);
+    const val=sel?Number(sel.value):-1;
+    const ok=val===item.answer;
+    if(ok) score++;
+    if(val===-1) unanswered++;
+    const box=$("#qbox"+i);
+    $$(".option",box).forEach((opt,j)=>{
+      opt.classList.toggle("is-correct",j===item.answer);
+      opt.classList.toggle("is-wrong",j===val&&!ok);
+    });
+    const ex=$(".q-explain",box);
+    ex.hidden=false;
+    ex.classList.toggle("ok",ok);
+    ex.classList.toggle("bad",!ok);
+    ex.textContent=(val===-1?"Belum dijawab. ":ok?"✓ Benar. ":"✗ Belum tepat. ")+item.explain;
+    $$("input",box).forEach(r=>r.disabled=true);
+  });
+  return {score,unanswered};
+}
+$("#quizForm").addEventListener("change",updateQuizProgress);
+$("#quizForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const {score,unanswered}=gradeQuiz();
+  const pct=Math.round(score/QUIZ.length*100);
+  const id=getIdentity();
+  const record={name:id.name||"",klass:id.klass||"",score:pct,correct:score,date:new Date().toLocaleString("id-ID")};
+  const saved=store.set(KEYS.score,record);
+  setDone("evaluasi",true);
+  $("#submitQuiz").disabled=true;
+  const title=pct===100?"Luar biasa!":pct>=60?"Sudah baik, terus tingkatkan!":"Ayo baca ulang materi dan periksa sumbernya.";
+  $("#quizResult").innerHTML=`
+    <div class="score-big">${pct}<small>/100</small></div>
+    <div><h3>${title}</h3><p>${score} dari ${QUIZ.length} jawaban benar${unanswered?` · ${unanswered} soal belum dijawab`:""}.</p></div>`;
+  $("#quizResult").hidden=false;
+  if(!saved){
+    showMsg($("#quizNote"),"Penyimpanan browser tidak tersedia, jadi catat nilaimu sendiri.",true);
+  }else if(!record.name||!record.klass){
+    showMsg($("#quizNote"),"Isi nama dan kelas di beranda agar hasilmu tersimpan dengan nama kamu.",true);
+  }else{
+    showMsg($("#quizNote"),`Hasil disimpan di perangkat ini atas nama ${record.name} (${record.klass}).`,false);
+  }
+  renderLastScore();
+});
+$("#resetQuiz").addEventListener("click",renderQuiz);
+function renderLastScore(){
+  const last=store.get(KEYS.score,null);
+  const el=$("#lastScore");
+  if(last&&typeof last.score==="number"){el.textContent=`Nilai terakhir di perangkat ini: ${last.score}/100 (${last.date})`;el.hidden=false}
+  else{el.textContent="";el.hidden=true}
+}
+
+/* ===== Identitas ===== */
+$("#identityForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const name=$("#studentName").value.trim(),klass=$("#studentClass").value.trim(),fb=$("#identityFeedback");
+  if(!name||!klass){showMsg(fb,"Isi nama dan kelas terlebih dahulu.",true);return}
+  const ok=store.set(KEYS.identity,{name,klass});
+  renderGreeting();
+  if(ok) showMsg(fb,`Identitas tersimpan di browser ini. Selamat belajar, ${name}!`,false);
+  else showMsg(fb,"Penyimpanan browser tidak tersedia. Identitasmu hanya berlaku selama halaman ini terbuka.",true);
+});
+
+/* ===== Draft otomatis ===== */
+DRAFT_FIELDS.forEach(k=>{
+  const el=$(`[data-draft="${k}"]`);
+  if(!el) return;
+  el.value=draft[k]||"";
+  el.addEventListener("input",()=>{
+    draft[k]=el.value;
+    const ok=store.set(KEYS.draft,draft);
+    $("#note-"+k).textContent=ok?"Draft tersimpan otomatis di perangkat ini.":"Penyimpanan browser tidak tersedia. Salin jawabanmu agar tidak hilang.";
+    renderProgress();
+  });
+});
+
+/* ===== Materi, refleksi, ekspor ===== */
+$("#markReadBtn").addEventListener("click",()=>{setDone("materi",!completed("materi"));renderMateri()});
+$("#saveReflection").addEventListener("click",()=>{
+  const v=$("#reflection").value.trim(),fb=$("#reflectionFeedback");
+  if(!v){showMsg(fb,"Tulis refleksi terlebih dahulu, ya.",true);return}
+  const ok=setDone("refleksi",true);
+  showMsg(fb,ok?"Refleksi tersimpan di browser pada perangkat ini.":"Penyimpanan browser tidak tersedia. Unduh TXT agar refleksimu tidak hilang.",!ok);
+});
+$("#exportBtn").addEventListener("click",()=>{
+  const id=getIdentity(),last=store.get(KEYS.score,null),fb=$("#reflectionFeedback");
+  const val=k=>($(`[data-draft="${k}"]`)?.value||"").trim()||"(belum diisi)";
+  const scoreText=last&&typeof last.score==="number"?`${last.score}/100 (${last.correct}/5 benar), ${last.date}`:"Belum mengerjakan kuis";
+  const content=[
+    "JEJAK PROKLAMASI — HASIL KEGIATAN",
+    `Nama: ${id.name||"Belum diisi"}`,
+    `Kelas: ${id.klass||"Belum diisi"}`,
+    `Nilai kuis: ${scoreText}`,
+    "",
+    "ANALISIS SUMBER A:",val("sourceA"),
+    "",
+    "ANALISIS SUMBER B:",val("sourceB"),
+    "",
+    "KESIMPULAN DISKUSI:",val("groupAnswer"),
+    "",
+    "REFLEKSI:",val("reflection"),
+    ""
+  ].join("\n");
+  try{
+    const blob=new Blob([content],{type:"text/plain;charset=utf-8"});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");
+    a.href=url;a.download="hasil-jejak-proklamasi.txt";
+    document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+    showMsg(fb,"File TXT sedang diunduh.",false);
+  }catch(err){
+    showMsg(fb,"Unduhan tidak dapat dimulai di browser ini. Salin teks jawabanmu secara manual.",true);
+  }
+});
+
+/* ===== Hapus data perangkat (dua langkah, tanpa dialog) ===== */
+let resetTimer=null;
+$("#resetAllBtn").addEventListener("click",function(){
+  const btn=this;
+  if(!resetTimer){
+    btn.textContent="Klik sekali lagi untuk menghapus";
+    resetTimer=setTimeout(()=>{resetTimer=null;btn.textContent="Hapus data di perangkat ini"},4000);
+    return;
+  }
+  clearTimeout(resetTimer);resetTimer=null;
+  btn.textContent="Hapus data di perangkat ini";
+  [KEYS.identity,KEYS.score,KEYS.draft,KEYS.progress].forEach(k=>store.remove(k));
+  progress={};draft={};
+  $("#studentName").value="";$("#studentClass").value="";
+  DRAFT_FIELDS.forEach(k=>{const el=$(`[data-draft="${k}"]`);if(el)el.value="";$("#note-"+k).textContent=""});
+  renderGreeting();renderMateri();renderProgress();renderLastScore();renderQuiz();
+  hideMsg($("#reflectionFeedback"));
+  showMsg($("#identityFeedback"),"Data di perangkat ini sudah dihapus.",false);
+});
+
+/* ===== Tema ===== */
+$("#themeBtn").addEventListener("click",()=>{
+  const next=currentTheme()==="dark"?"light":"dark";
+  document.documentElement.setAttribute("data-theme",next);
+  store.set(KEYS.theme,next);
+  updateThemeBtn();
+});
+
+/* ===== Kronologi: tombol & perubahan pilihan ===== */
+$("#chronologyList").addEventListener("change",e=>{
+  if(e.target.tagName!=="SELECT") return;
+  const card=e.target.closest(".event");
+  card.classList.remove("ok","bad");
+  $(".mark",card).textContent="";
+});
+$("#checkChrono").addEventListener("click",checkChrono);
+$("#resetChrono").addEventListener("click",()=>renderChrono());
+
+/* ===== Mulai ===== */
+(function init(){
+  const savedTheme=store.get(KEYS.theme,null);
+  if(savedTheme==="light"||savedTheme==="dark") document.documentElement.setAttribute("data-theme",savedTheme);
+  const id=getIdentity();
+  $("#studentName").value=id.name||"";
+  $("#studentClass").value=id.klass||"";
+  renderGreeting();
+  renderChrono();
+  renderQuiz();
+  renderLastScore();
+  renderMateri();
+  renderProgress();
+  updateThemeBtn();
+  setStagger();
+  const start=location.hash.slice(1);
+  showView(VIEWS.includes(start)?start:"beranda");
+  booted=true;
+})();
+})();
+</script>
